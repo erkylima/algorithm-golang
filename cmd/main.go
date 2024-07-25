@@ -1,14 +1,17 @@
 package main
 
-func main() {
-	// l1 := &ListNode{Val: 9, Next: &ListNode{Val: 1, Next: &ListNode{Val: 6}}}
-	// l2 := &ListNode{Val: 0}
-	// result := addTwoNumbers(l1, l2)
-	// for result != nil {
-	// 	print(result.Val)
-	// 	result = result.Next
-	// }
+import (
+	"log"
 
-	// s := "PAYPALISHIRING"
-	// fmt.Println(convert(s, 4))
+	"github.com/erkylima/allGolangRithm/api/v1/algorithms/routes"
+	"github.com/gin-gonic/gin"
+)
+
+func main() {
+	r := gin.Default()
+	routes.RoutesRegistry(r)
+	port := "3000"
+	if err := r.Run(":" + port); err != nil {
+		log.Fatal("error on start server:", err)
+	}
 }
